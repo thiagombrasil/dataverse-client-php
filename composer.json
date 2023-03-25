@@ -1,5 +1,5 @@
 {
-    "name": "matos/php-dataverseclient",
+    "name": "matos/dataverseclient",
     "description": "A PHP client for Dataverse",
     "type": "library",
     "require": {
