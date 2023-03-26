@@ -5,14 +5,23 @@ namespace PHPDataverseClient\Responses;
 class DataverseCollectionCreateResponse
 {
     public $id;
+
     public $alias;
+
     public $name;
+
     public $affiliation;
+
     public $dataverseContacts;
+
     public $permissionRoot;
+
     public $description;
+
     public $dataverseType;
+
     public $ownerId;
+
     public $creationDate;
 
     public function __construct(array $data)
