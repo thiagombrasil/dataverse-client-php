@@ -10,7 +10,7 @@ class DataverseCollectionContact
 
     public function __construct(array $data)
     {
-        $this->displayOrder = $data['displayOrder'];
+        $this->displayOrder = $data['displayOrder'] ?? null;
         $this->contactEmail = $data['contactEmail'];
     }
 
