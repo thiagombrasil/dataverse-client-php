@@ -17,6 +17,21 @@ class ResponseEntityTest extends TestCase
         };
     }
 
+    public function testSetProperty(): void
+    {
+        $data = ['name' => 'test'];
+        $responseEntity = new class ($data) extends ResponseEntity {
+            protected $name;
+
+            public function getName(): string
+            {
+                return $this->name;
+            }
+        };
+
+        self::assertEquals($data['name'], $responseEntity->getName());
+    }
+
     public function testCreateListProperties(): void
     {
         $data = [

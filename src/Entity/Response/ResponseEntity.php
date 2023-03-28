@@ -17,7 +17,9 @@ abstract class ResponseEntity
                 $this->$key = array_map(static function ($data) use ($listProperties, $key) {
                     return new $listProperties[$key]($data);
                 }, $value);
+                continue;
             }
+            $this->$key = $value;
         }
     }
 
