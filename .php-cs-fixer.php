@@ -18,6 +18,7 @@ $rules = [
     'explicit_string_variable' => true,
     'list_syntax' => ['syntax' => 'short'],
     'method_chaining_indentation' => true,
+    'no_leading_namespace_whitespace' => true,
     'no_unused_imports' => true,
     'no_spaces_around_offset' => true,
     'no_superfluous_phpdoc_tags' => true,
