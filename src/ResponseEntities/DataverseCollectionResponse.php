@@ -1,8 +1,8 @@
 <?php
 
-namespace PHPDataverseClient\Responses;
+namespace PHPDataverseClient\ResponseEntities;
 
-class DataverseCollectionCreateResponse
+class DataverseCollectionResponse
 {
     public $id;
 
