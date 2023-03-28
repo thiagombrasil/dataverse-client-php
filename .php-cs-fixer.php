@@ -40,6 +40,7 @@ $rules = [
     'single_quote' => true,
     'standardize_increment' => true,
     'standardize_not_equals' => true,
+    'static_lambda' => true,
     'ternary_to_null_coalescing' => true,
 ];
 
