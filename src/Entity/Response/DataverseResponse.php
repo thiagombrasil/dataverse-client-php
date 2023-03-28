@@ -6,41 +6,31 @@ use PHPDataverseClient\Entity\DataverseContact;
 
 class DataverseResponse extends ResponseEntity
 {
-    public $id;
+    protected $id;
 
-    public $alias;
+    protected $alias;
 
-    public $name;
+    protected $name;
 
-    public $affiliation;
+    protected $affiliation;
 
-    public $dataverseContacts;
+    protected $dataverseContacts;
 
-    public $permissionRoot;
+    protected $permissionRoot;
 
-    public $description;
+    protected $description;
 
-    public $dataverseType;
+    protected $dataverseType;
 
-    public $ownerId;
+    protected $ownerId;
 
-    public $creationDate;
+    protected $creationDate;
 
-    public function __construct(array $data)
+    protected function getListProperties(): array
     {
-        $this->id = $data['id'];
-        $this->alias = $data['alias'];
-        $this->name = $data['name'];
-        $this->affiliation = $data['affiliation'];
-        $this->permissionRoot = $data['permissionRoot'];
-        $this->description = $data['description'];
-        $this->dataverseType = $data['dataverseType'];
-        $this->ownerId = $data['ownerId'];
-        $this->creationDate = $data['creationDate'];
-
-        $this->dataverseContacts = array_map(static function ($contact) {
-            return new DataverseContact($contact);
-        }, $data['dataverseContacts']);
+        return [
+            'dataverseContacts' => DataverseContact::class
+        ];
     }
 
     public function getId(): int
