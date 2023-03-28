@@ -4,7 +4,7 @@ namespace PHPDataverseClient\Entity\Request;
 
 use PHPDataverseClient\Entity\DataverseContact;
 
-class DataverseCollectionRequest
+class DataverseRequest
 {
     private $name;
 

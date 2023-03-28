@@ -3,10 +3,10 @@
 namespace PHPDataverseClient\Tests\Entity\Request;
 
 use PHPDataverseClient\Entity\DataverseContact;
-use PHPDataverseClient\Entity\Request\DataverseCollectionRequest;
+use PHPDataverseClient\Entity\Request\DataverseRequest;
 use PHPUnit\Framework\TestCase;
 
-class DataverseCollectionRequestTest extends TestCase
+class DataverseRequestTest extends TestCase
 {
     public function testSetRequiredProperties(): void
     {
@@ -19,7 +19,7 @@ class DataverseCollectionRequestTest extends TestCase
                 ]
             ]
         ];
-        $collectionRequest = new DataverseCollectionRequest($data);
+        $collectionRequest = new DataverseRequest($data);
 
         self::assertEquals($data['name'], $collectionRequest->getName());
         self::assertEquals($data['alias'], $collectionRequest->getAlias());
@@ -43,7 +43,7 @@ class DataverseCollectionRequestTest extends TestCase
             'description' => 'A Dataverse for tests.',
             'dataverseType' => 'UNCATEGORIZED'
         ];
-        $collectionRequest = new DataverseCollectionRequest($data);
+        $collectionRequest = new DataverseRequest($data);
 
         self::assertEquals($data['name'], $collectionRequest->getName());
         self::assertEquals($data['alias'], $collectionRequest->getAlias());

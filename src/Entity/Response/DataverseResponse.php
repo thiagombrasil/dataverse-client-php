@@ -4,7 +4,7 @@ namespace PHPDataverseClient\Entity\Response;
 
 use PHPDataverseClient\Entity\DataverseContact;
 
-class DataverseCollectionResponse
+class DataverseResponse
 {
     public $id;
 

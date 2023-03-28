@@ -2,10 +2,10 @@
 
 namespace PHPDataverseClient\Tests\Entity\Response;
 
-use PHPDataverseClient\Entity\Response\DataverseCollectionResponse;
+use PHPDataverseClient\Entity\Response\DataverseResponse;
 use PHPUnit\Framework\TestCase;
 
-final class DataverseCollectionResponseTest extends TestCase
+final class DataverseResponseTest extends TestCase
 {
     public function testConstructorSetsProperties()
     {
@@ -27,7 +27,7 @@ final class DataverseCollectionResponseTest extends TestCase
             'creationDate' => '2000-01-01T12:00:00Z'
         ];
 
-        $collectionCreateResp = new DataverseCollectionResponse($data);
+        $collectionCreateResp = new DataverseResponse($data);
 
         self::assertEquals($data['id'], $collectionCreateResp->getId());
         self::assertEquals($data['alias'], $collectionCreateResp->getAlias());
