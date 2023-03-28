@@ -22,26 +22,25 @@ class HttpClientTest extends TestCase
         self::assertEquals($body, $respBody);
     }
 
-    public function testFailRequestWithResponse(): void
+    public function testRequestCatchGuzzleException(): void
     {
-        $req = new Request('GET', '/');
-        $resp = new Response(400, [], '{"foo":"bar"}');
-        $reqException = new RequestException('foo', $req, $resp);
-        $mock = new MockHandler([$reqException]);
-        $httpClient = new HttpClient(['handler' => $mock]);
-        $respBody = $httpClient->request('GET', '/');
-
-        self::assertEquals('{"foo":"bar"} (400 Bad Request)', $respBody);
-    }
-
-    public function testFailRequestWithoutResponse(): void
-    {
-        $req = new Request('GET', '/');
-        $reqException = new RequestException('Error completing request', $req);
-        $mock = new MockHandler([$reqException]);
+        $e = RequestException::create(new Request('GET', '/'));
+        $mock = new MockHandler([$e]);
         $httpClient = new HttpClient(['handler' => $mock]);
         $respBody = $httpClient->request('GET', '/');
 
         self::assertEquals('Error completing request', $respBody);
+    }
+
+    public function testRequestCatchBadResponseExceptionException(): void
+    {
+        $req = new Request('GET', '/');
+        $resp = new Response(400, [], '{"foo":"bar"}');
+        $e = RequestException::create($req, $resp);
+        $mock = new MockHandler([$e]);
+        $httpClient = new HttpClient(['handler' => $mock]);
+        $respBody = $httpClient->request('GET', '/');
+
+        self::assertEquals('{"foo":"bar"}', $respBody);
     }
 }
