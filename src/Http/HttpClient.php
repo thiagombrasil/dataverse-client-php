@@ -15,15 +15,26 @@ class HttpClient
         $this->client = new Client($config);
     }
 
-    public function request(string $method, string $uri, array $options = []): string
+    public function request(string $method, string $uri, array $options = []): HttpResponse
     {
         try {
             $response = $this->client->request($method, $uri, $options);
         } catch (BadResponseException $e) {
-            return (string) $e->getResponse()->getBody();
+            return new HttpResponse(
+                $e->getResponse()->getStatusCode(),
+                $e->getResponse()->getReasonPhrase(),
+                (string) $e->getResponse()->getBody()
+            );
         } catch (GuzzleException $e) {
-            return $e->getMessage();
+            return new HttpResponse(
+                $e->getCode(),
+                $e->getMessage()
+            );
         }
-        return (string) $response->getBody();
+        return new HttpResponse(
+            $response->getStatusCode(),
+            $response->getReasonPhrase(),
+            (string) $response->getBody()
+        );
     }
 }
