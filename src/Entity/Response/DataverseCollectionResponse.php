@@ -1,6 +1,8 @@
 <?php
 
-namespace PHPDataverseClient\ResponseEntities;
+namespace PHPDataverseClient\Entity\Response;
+
+use PHPDataverseClient\Entity\DataverseContact;
 
 class DataverseCollectionResponse
 {
@@ -37,7 +39,7 @@ class DataverseCollectionResponse
         $this->creationDate = $data['creationDate'];
 
         $this->dataverseContacts = array_map(static function ($contact) {
-            return new DataverseCollectionContact($contact);
+            return new DataverseContact($contact);
         }, $data['dataverseContacts']);
     }
 

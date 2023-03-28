@@ -1,8 +1,8 @@
 <?php
 
-namespace PHPDataverseClient\ResponseEntities;
+namespace PHPDataverseClient\Entity;
 
-class DataverseCollectionContact
+class DataverseContact
 {
     private $displayOrder;
 

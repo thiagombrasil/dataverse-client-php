@@ -1,8 +1,8 @@
 <?php
 
-namespace PHPDataverseClient\RequestEntities;
+namespace PHPDataverseClient\Entity\Request;
 
-use PHPDataverseClient\ResponseEntities\DataverseCollectionContact;
+use PHPDataverseClient\Entity\DataverseContact;
 
 class DataverseCollectionRequest
 {
@@ -27,7 +27,7 @@ class DataverseCollectionRequest
         $this->dataverseType = $data['dataverseType'] ?? null;
 
         $this->dataverseContacts = array_map(static function ($dataverseContact) {
-            return new DataverseCollectionContact($dataverseContact);
+            return new DataverseContact($dataverseContact);
         }, $data['dataverseContacts']);
     }
 

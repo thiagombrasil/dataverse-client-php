@@ -1,9 +1,9 @@
 <?php
 
-namespace PHPDataverseClient\Tests\RequestEntities;
+namespace PHPDataverseClient\Tests\Entity\Request;
 
-use PHPDataverseClient\RequestEntities\DataverseCollectionRequest;
-use PHPDataverseClient\ResponseEntities\DataverseCollectionContact;
+use PHPDataverseClient\Entity\DataverseContact;
+use PHPDataverseClient\Entity\Request\DataverseCollectionRequest;
 use PHPUnit\Framework\TestCase;
 
 class DataverseCollectionRequestTest extends TestCase
@@ -24,7 +24,7 @@ class DataverseCollectionRequestTest extends TestCase
         self::assertEquals($data['name'], $collectionRequest->getName());
         self::assertEquals($data['alias'], $collectionRequest->getAlias());
         self::assertContainsOnlyInstancesOf(
-            DataverseCollectionContact::class,
+            DataverseContact::class,
             $collectionRequest->getDataverseContacts()
         );
     }
@@ -51,7 +51,7 @@ class DataverseCollectionRequestTest extends TestCase
         self::assertEquals($data['description'], $collectionRequest->getDescription());
         self::assertEquals($data['dataverseType'], $collectionRequest->getDataverseType());
         self::assertContainsOnlyInstancesOf(
-            DataverseCollectionContact::class,
+            DataverseContact::class,
             $collectionRequest->getDataverseContacts()
         );
     }

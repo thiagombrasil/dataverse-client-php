@@ -1,8 +1,8 @@
 <?php
 
-namespace PHPDataverseClient\Tests\ResponsesEntities;
+namespace PHPDataverseClient\Tests\Entity\Response;
 
-use PHPDataverseClient\ResponseEntities\DataverseCollectionResponse;
+use PHPDataverseClient\Entity\Response\DataverseCollectionResponse;
 use PHPUnit\Framework\TestCase;
 
 final class DataverseCollectionResponseTest extends TestCase
