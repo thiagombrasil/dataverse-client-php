@@ -7,6 +7,9 @@
             "email": "thiago.matos256@gmail.com"
         }
     ],
+    "scripts": {
+        "php-cs-fixer": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+    },
     "type": "library",
     "require": {
         "guzzlehttp/guzzle": "^7.5"
